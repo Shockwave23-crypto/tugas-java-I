@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Changer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .text-box {
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            display: inline-block;
+            font-size: 24px;
+        }
+        .controls {
+            margin: 20px;
+        }
+        .controls label {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Font Property Changer</h1>
+    <div class="text-box" id="textBox">
+        This is the text you can modify.
+    </div>
+
+    <div class="controls">
+        <label for="fontFamily">Font Family:</label>
+        <select id="fontFamily">
+            <option value="Arial">Arial</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Courier New">Courier New</option>
+        </select>
+
+        <label for="fontSize">Font Size:</label>
+        <input type="range" id="fontSize" min="10" max="50" value="24">
+
+        <label for="fontColor">Font Color:</label>
+        <input type="color" id="fontColor" value="#000000">
+
+        <label for="fontWeight">Font Weight:</label>
+        <select id="fontWeight">
+            <option value="normal">Normal</option>
+            <option value="bold">Bold</option>
+            <option value="lighter">Lighter</option>
+        </select>
+    </div>
+
+    <script>
+        // Get elements
+        const textBox = document.getElementById('textBox');
+        const fontFamily = document.getElementById('fontFamily');
+        const fontSize = document.getElementById('fontSize');
+        const fontColor = document.getElementById('fontColor');
+        const fontWeight = document.getElementById('fontWeight');
+
+        // Add event listeners
+        fontFamily.addEventListener('change', () => {
+            textBox.style.fontFamily = fontFamily.value;
+        });
+
+        fontSize.addEventListener('input', () => {
+            textBox.style.fontSize = fontSize.value + 'px';
+        });
+
+        fontColor.addEventListener('input', () => {
+            textBox.style.color = fontColor.value;
+        });
+
+        fontWeight.addEventListener('change', () => {
+            textBox.style.fontWeight = fontWeight.value;
+        });
+    </script>
+</body>
+</html>
